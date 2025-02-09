@@ -1,0 +1,25 @@
+Automaton A1
+{
+states {q0, q1};
+start q0;
+accept { q0 };
+inputset { "0" , "1" };
+
+transition q0:
+	on "0", goto q1;
+	on "1", goto q1;
+
+transition q1:
+	on "0", goto q0;
+	on "1", goto q0;
+
+}
+
+Verify A1 {
+accepts { "001" };
+terminates {"0010"};
+deterministic;
+isempty;
+terminates {"0001110", "00"};
+equal {A1,A2};
+}
