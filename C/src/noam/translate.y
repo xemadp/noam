@@ -142,6 +142,10 @@ property_list
 			{
 			print_reduction("property_list -> property SEMICOLON property_list\n");
 			}
+			| property SEMICOLON
+			{
+			print_reduction("property_list -> property SEMICOLON property_list\n");
+			}
 			| /*empty*/
 			{
 			print_reduction("property_list -> epsilon\n");
@@ -173,7 +177,6 @@ property
 			{
 			print_reduction("property -> termination\n");
 			}
-			| /**/
 			;
 
 reachable
