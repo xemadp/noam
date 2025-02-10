@@ -87,7 +87,7 @@ start_state
 accept_states 
 			: ACCEPT_KW LBRACE identifier_list RBRACE SEMICOLON
 			{
-			  print_reduction("accept_states -> ACCEPT_KW LBRACE identifier_list RBRACE\n");
+			  print_reduction("accept_states -> ACCEPT_KW LBRACE identifier_list RBRACE SEMICOLON\n");
 			}
 			;
 
