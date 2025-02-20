@@ -1,7 +1,15 @@
 (ql:quickload '(:cl-lex))
 
 (defpackage :noam-lexer
-  (:use :cl :cl-lex))
+  (:use :cl :cl-lex)
+  (:export 
+    #:noam-lexer
+   :AUTOMATON_KW :STATES_KW :START_KW :ACCEPT_KW :VERIFY_KW 
+   :INPUTSET_KW :TRANSITION_KW :ON_KW :GOTO_KW :CANREACH_KW 
+   :ACCEPTS_KW :DETERMINISTIC_KW :ISEMPTY_KW :EQUAL_KW :TERMINATES_KW 
+   :SEMICOLON :LBRACE :RBRACE :COMMA :COLON 
+   :IDENTIFIER :STRING))
+    
 
 (in-package :noam-lexer)
 
@@ -13,6 +21,7 @@
   
   
   ;; Reserved keywords.
+  ("accepts"           (return (values 'ACCEPTS_KW $@)))
   ("Automaton"         (return (values 'AUTOMATON_KW $@)))
   ("states"            (return (values 'STATES_KW $@)))
   ("start"             (return (values 'START_KW $@)))
@@ -23,7 +32,6 @@
   ("on"                (return (values 'ON_KW $@)))
   ("goto"              (return (values 'GOTO_KW $@)))
   ("canreach"          (return (values 'CANREACH_KW $@)))
-  ("accepts"           (return (values 'ACCEPTS_KW $@)))
   ("deterministic"     (return (values 'DETERMINISTIC_KW $@)))
   ("isempty"           (return (values 'ISEMPTY_KW $@)))
   ("terminates"        (return (values 'TERMINATES_KW $@)))
